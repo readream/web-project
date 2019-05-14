@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>文字右移</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      width: 800px;
+      height: 300px;
+      margin: 10px auto;
+      padding: 10px;
+      border: 5px solid #cccccc;
+    }
+
+    textarea {
+      width: 300px;
+      height: 100%;
+      background-color: #c63;
+      font-size: 16px;
+      color: #ffffff;
+      float: left;
+    }
+
+    #mid {
+      width: 120px;
+      float: left;
+      margin: 0 20px;
+      text-align: center;
+    }
+
+    input {
+      width: 100px;
+      height: 30px;
+      background: #f60;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    strong {
+      display: block;
+      margin-top: 10px;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 30px;
+      margin-left: 15px;
+      display: none;
+    }
+
+    ul li {
+      width: 12px;
+      height: 12px;
+      background: #fc6;
+      float: left;
+      margin-right: 5px;
+    }
+
+    #content {
+      width: 300px;
+      height: 100%;
+      float: right;
+      background: #fc6;
+      border: 1px dashed #000000;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <textarea
+      id="text"
+      cols="20"
+      rows="20"
+    ></textarea>
+    <div id="mid">
+      <input
+        type="button"
+        value="文字右移"
+        id="button"
+      >
+      <strong>0/0</strong>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div id="content"></div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      var container = document.getElementById('container')
+      var text = document.getElementById('text')
+      var button = document.getElementById('button')
+      var strong = document.getElementsByTagName('strong')[0]
+      var ul = mid.getElementsByTagName('ul')[0]
+      var li = ul.getElementsByTagName('li')
+      var content = document.getElementById('content')
+      var timer = null, timer1 = null;
+      button.onclick = function () {
+        //输入框没有文字
+        if (!text.value) {
+          alert('请输入文字')
+          return
+        }
+        //每次输入时清空右边的内容
+        content.innerHTML = ''
+        this.style.background = '#ccc'
+        ul.style.display = 'block'
+        var num = 0
+        //进度条
+        function progress() {
+          for (var i = 0; i < li.length; i++) {
+            li[i].style.background = ''
+          }
+          li[num].style.background = '#f30'
+          num++
+          if (num == li.length) {
+            num = 0
+          }
+        }
+        timer1 = setInterval(progress, 50)
+        // 文字右移
+        timer = setInterval(textMove, 50)
+        var sum = text.value.length
+        function textMove() {
+          strong.innerHTML = content.innerHTML.length + '/' + sum
+          if (text.value == "") {
+            clearInterval(timer);
+            clearInterval(timer1)
+            ul.style.display = "none";
+            button.style.background = "";
+            return;
+          }
+          var str = text.value;
+          console.log(str)
+          var arr = str.split('')
+          content.innerHTML += arr.shift()
+          text.value = arr.join('')
+          console.log(text.value)
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
