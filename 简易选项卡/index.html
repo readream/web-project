@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>简易选项卡</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 300px;
+      border: 1px solid #000000;
+      margin: 10px auto;
+    }
+
+    #tab {
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      background: #333
+    }
+
+    #tab li {
+      list-style: none;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    #tab li a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 0 25px;
+    }
+
+    #tab li.sec {
+      background: #dddddd
+    }
+
+    #tab li.sec a {
+      color: #333333
+    }
+
+    #text {
+      width: 100%;
+      height: 200px;
+      background: #f2f2f2;
+      text-align: center;
+    }
+
+    #text>div {
+      line-height: 150px;
+      display: none;
+    }
+
+    #text>div.cur {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <ul id="tab">
+      <li class="sec"><a href="#">新闻</a></li>
+      <li><a href="#">音乐</a></li>
+      <li><a href="#">视频</a></li>
+    </ul>
+    <div id="text">
+      <div class="cur">
+        <h1>新闻内容</h1>
+      </div>
+      <div>
+        <h1>音乐内容</h1>
+      </div>
+      <div>
+        <h1>视频内容</h1>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      var li = document.getElementsByTagName('li')
+      var text = document.getElementById('text')
+      var div = text.getElementsByTagName('div')
+      console.log(li)
+      console.log(div)
+      for (var i = 0; i < li.length; i++) {
+        li[i].index = i
+        li[i].onclick = function () {
+          for (var i = 0; i < li.length; i++) {
+            li[i].className = ''
+            div[i].className = ''
+          }
+          this.className = 'sec'
+          div[this.index].className = 'cur'
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
