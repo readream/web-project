@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>星星闪烁</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #000000;
+    }
+
+    #star {
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="star"></div>
+
+  <script>
+    var star = document.getElementById('star')
+    //创建对象，存储星星
+    var obj = new Obj()
+    function Obj() { }
+    //添加生成星星的方法
+    Obj.prototype.drawStar = function () {
+      var div = document.createElement('div')
+
+      div.style.position = 'relative'
+      div.style.width = '7px'
+      div.style.height = '7px'
+      div.style.overflow = 'hidden'
+      div.style.left = Math.floor(document.body.clientWidth * Math.random()) + 'px'
+      div.style.top = Math.floor(document.body.clientHeight * Math.random()) + 'px'
+      console.log(div.style.left)
+      star.appendChild(div)
+      var img = document.createElement('img')
+      img.style.position = 'absolute'
+      img.style.width = '49px'
+      img.style.height = '7px'
+      img.src = './images/star.png'
+      img.style.top = '0'
+      div.appendChild(img)
+      play(img)
+    }
+    //星星闪烁
+    function play(ele) {
+      var i = Math.floor(Math.random() * 7)
+      var timer = setInterval(function () {
+        if (i < 7) {
+          ele.style.left = -i * 7 + 'px';
+          i++;
+        } else {
+          i = 0;
+        }
+      }, 100)
+    }
+    //创建30个星星
+    for (var i = 0; i < 50; i++) {
+      obj.drawStar()
+    }
+  </script>
+</body>
+
+</html>
