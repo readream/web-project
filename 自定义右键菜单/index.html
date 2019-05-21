@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>自定义右键菜单</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      background: url(./images/1.jpg) no-repeat 0 0;
+    }
+
+    #menu {
+      display: none;
+      position: absolute
+    }
+
+    #menu ul {
+      list-style: none;
+      box-shadow: 1px 1px 2px #fff;
+      width: 100px;
+      background: #fff;
+    }
+
+    #menu li {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      color: #777;
+      border-bottom: 1px solid #efefef;
+      text-indent: 2em;
+      font-size: 14px;
+    }
+
+    #menu li:hover {
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #menu li:nth-child(1) {
+      background: url(./images/ico1.jpg) no-repeat 5px center;
+    }
+
+    #menu li:nth-child(2) {
+      background: url(./images/ico2.jpg) no-repeat 5px center;
+    }
+
+    #menu li:nth-child(3) {
+      background: url(./images/ico3.jpg) no-repeat 5px center;
+    }
+
+    #menu li:nth-child(4) {
+      background: url(./images/ico4.jpg) no-repeat 5px center;
+    }
+
+    #menu li:nth-child(5) {
+      background: url(./images/ico5.jpg) no-repeat 5px center;
+    }
+
+    #menu li:nth-child(6) {
+      background: url(./images/ico6.jpg) no-repeat 5px center;
+    }
+
+    #menu li:nth-child(7) {
+      background: url(./images/ico7.jpg) no-repeat 5px center;
+    }
+
+    #list {
+      position: relative;
+      width: 650px;
+      height: 330px;
+      cursor: pointer;
+      padding: 50px 10px 10px 10px;
+      background: rgba(000, 000, 000, 0.4);
+      box-sizing: border-box;
+      left: 50%;
+      top: 50%;
+      margin-left: -325px;
+      margin-top: -165px;
+      display: none;
+    }
+
+    #list .images {
+      height: 50px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 50px;
+      text-indent: 15px;
+      background: #333;
+      color: #fff;
+    }
+
+    #close {
+      right: 10px;
+      position: absolute;
+      top: 11px;
+    }
+
+    #list ul {
+      list-style: none;
+      margin: 5px auto;
+    }
+
+    #list li {
+      float: left;
+      padding: 2px;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="menu">
+    <ul>
+      <li>添加应用</li>
+      <li>获取课程</li>
+      <li>添加笔记</li>
+      <li>上传资料</li>
+      <li>刷新</li>
+      <li>更换背景</li>
+      <li>注销</li>
+    </ul>
+  </div>
+  <div id="list">
+    <div class="images">
+      <h3>桌面背景墙</h3><img
+        src="./images/close.png"
+        alt=""
+        id="close"
+      >
+    </div>
+    <ul>
+      <li><img
+          src="images/s_1.jpg"
+          alt=""
+        /></li>
+      <li><img
+          src="images/s_2.jpg"
+          alt=""
+        /></li>
+      <li><img
+          src="images/s_3.jpg"
+          alt=""
+        /></li>
+      <li><img
+          src="images/s_4.jpg"
+          alt=""
+        /></li>
+      <li><img
+          src="images/s_5.jpg"
+          alt=""
+        /></li>
+      <li><img
+          src="images/s_6.jpg"
+          alt=""
+        /></li>
+    </ul>
+  </div>
+
+  <script>
+    var menu = document.getElementById('menu')
+    var li = menu.getElementsByTagName('li')
+    var list = document.getElementById('list')
+    var ul = list.getElementsByTagName('ul')[0]
+    var lis = list.getElementsByTagName('li')
+    var img = ul.getElementsByTagName('img')
+    var close = document.getElementById('close')
+    //点击显示自定义菜单
+    document.oncontextmenu = function (e) {
+      console.log('123')
+      e = e || window.event
+      menu.style.display = 'block'
+      menu.style.left = e.clientX + 'px'
+      menu.style.top = e.clientY + 'px'
+      li[5].onclick = function () {
+        list.style.display = 'block'
+      }
+      //点击图片将整体背景改变
+
+      //阻止默认事件
+      return false
+    }
+    //点击其他地方菜单消失
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].index = i;
+      lis[i].onclick = function () {
+        var src = img[this.index].src
+        var bImg = src.replace('s_', '')
+        document.body.style.background = 'url(' + bImg + ')'
+      }
+    }
+    document.onclick = function () {
+      menu.style.display = 'none'
+    }
+    close.onclick = function () {
+      list.style.display = 'none'
+    }
+  </script>
+</body>
+
+</html>
