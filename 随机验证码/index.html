@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>随机验证码</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #wrap {
+      width: 500px;
+      margin: 20px auto
+    }
+
+    #text {
+      height: 30px;
+      text-indent: 1em;
+      box-sizing: border-box;
+      vertical-align: middle;
+      outline: none;
+    }
+
+    #code {
+      display: inline-block;
+      width: 80px;
+      height: 30px;
+      background: #aaa;
+      text-align: center;
+      line-height: 30px;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 7px;
+      padding-left: 7px;
+      font-weight: 7px;
+      vertical-align: middle
+    }
+
+    #btn {
+      width: 60px;
+      height: 30px;
+      outline: 0;
+      border: #153021;
+      background: #499990;
+      color: #fff;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body onload="createCode()">
+  <div id="wrap">
+    <input
+      type="text"
+      id="text"
+      placeholder="请输入验证码"
+    >
+    <a
+      href="javascript:;"
+      id="code"
+      onclick="createCode(this)"
+    ></a>
+    <input
+      type="button"
+      id="btn"
+      value="验证"
+    >
+  </div>
+
+  <script>
+    var btn = document.getElementById('btn')
+    var code = document.getElementById('code')
+    var random = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    function createCode() {
+      str = ''
+      for (var i = 0; i < 4; i++) {
+        var index = Math.floor(Math.random() * 36)
+        str += random[index]
+      }
+      console.log(str)
+      code.innerHTML = str
+      console.log(code.innerHTML)
+    }
+    function validate() {
+      var input = document.getElementById('text')
+      if (!input.value) {
+        alert('请输入验证码')
+      } else if (input.value != code.innerHTML) {
+        alert('验证码输入错误,请重新输入')
+        input.value = ''
+      } else {
+        window.open('http://www.baidu.com', '_blank')
+      }
+    }
+  </script>
+</body>
+
+</html>
