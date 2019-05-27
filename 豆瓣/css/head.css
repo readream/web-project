@@ -1,0 +1,122 @@
+/* 头部样式 */
+#header{
+  width: 100%;
+  height: 105px;
+  background: #f0f3f5;
+  margin-bottom: 45px;
+}
+.list{
+  height: 31px;
+  line-height: 31px;
+  background: #545652;
+}
+.header-left li{
+  float: left;
+  width: 48px;
+  text-align: center;
+}
+.list a{
+  color: #ccc;
+  font-size: 12px;
+}
+
+.list a:hover{
+  color: #fff;
+}
+.header-right{
+  float: right;
+  margin-right: 15px;
+}
+.header-right span{
+  margin-right: 13px;
+}
+.header-right img{
+  position: absolute;
+  right: 150px;
+  top: 31px;
+  display: none;
+  z-index: 3;
+}
+
+.header-right ul{
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 31px;
+  border: 1px solid #f0f0f0
+}
+.header-right li{
+  font-size: 12px;
+  line-height: 26px;
+  padding: 3px 15px;
+  color: #333;
+}
+.header-right li a,.header-right li a:hover{
+  color: #333;
+}
+.header-right li:hover{
+  background: #f0f0f0;
+  cursor: pointer;
+}
+/* 头部搜索 */
+.search{
+  width: 950px;
+  margin: 0 auto;
+  height: 74px;
+  background: #f0f3f5
+}
+.search ul {
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 40px;
+}
+.search ul li {
+  float: left;
+}
+.search li a{
+  font-size: 15px;
+  margin-right: 25px;
+  color: #007622;
+}
+.search li a:hover{
+  background: #007622;
+  color: #fff;
+}
+.search input{
+  width: 250px;
+  height: 25px;
+  text-indent: 5px;
+  border: 1px solid #ccc;
+  margin-left: 35px;
+  background: #fff url(../images/main/0.png) no-repeat 230px center
+}
+/* 内容 */
+#content{
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+
+}
+/*尾部*/
+.footer{
+  width: 100%; height: 50px;
+  line-height: 50px;
+  font-family: Tahoma;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #aaa;
+  border-top: 1px dashed #999;
+}
+.footer p{
+  float: left;
+}
+.footer ul{ float: right; }
+.footer li{ float: left; }
+.footer li a{
+  font-size: 13px;
+  color:#3276ab;
+  line-height:30px;
+}

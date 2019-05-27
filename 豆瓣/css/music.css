@@ -1,0 +1,277 @@
+#header{
+  height: 155px;
+}
+.search ul{
+  margin-left: 0;
+}
+.search li a{
+  color: #666;
+  font-size: 12px;
+}
+.search li a:hover{
+  color: #fff
+}
+.search .six{
+  position: absolute;
+  height: 114px;
+  top: 40px;
+  left: 1200px;
+}
+.main{
+  width: 950px;
+  margin: 0 auto;
+}
+.main hr{
+  height: 2px;
+  background: green;
+  margin-top: 2px;
+}
+.left{
+  float: left;
+  width: 600px;
+}
+/* 轮播图 */
+#ads {
+  width: 590px;
+  height: 250px;
+  position: relative;
+}
+#ads img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  animation-timing-function: linear;
+	animation-duration:0.7s;
+	animation-fill-mode:forwards;
+}
+#ads img.show{
+  animation-name: show;
+}
+#ads img.unshow{
+  animation-name: disappear;
+}
+#ads ul:last-child{
+	position: absolute;
+	bottom: 10px; left: 240px;
+}
+#ads ul:last-child li{
+	width: 12px; height: 12px;
+	float: left;
+	background: rgba(255,255,255,0.7);
+	margin-right: 8px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+#ads ul:last-child li.active{ background: orange; }
+@keyframes show{
+	from{opacity:0;}
+	to{opacity:1;}
+}
+@keyframes disappear{
+	from{opacity:1;}
+	to{opacity:0;}
+}
+/* 轮播结束 */
+/* 音乐人 */
+#singer{
+  width: 593px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+#singer .show{
+  display: block;
+}
+#singer span{
+  font-size: 12px;
+  color: #666;
+}
+#singer span em{
+  cursor: pointer;
+}
+#singer span .show1{
+  font-size: 16px;
+  color: #333;
+}
+#fash,#quik{
+  height: 400px;
+  background: #f5f7f8;
+  padding: 20px 10px;
+  display: none;
+}
+#singer li,#send li {
+  float: left;
+  margin-left: 15px;
+}
+#singer li img{
+  width: 120px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#singer li span{
+  display: block;
+  text-align: center;
+}
+#singer li span a,#send li span a{
+  display: block;
+  font-size: 16px;
+  color: #138a64
+}
+#singer li span em,#send li span em{
+  font-size: 12px;
+  color: #666;
+  line-height: 30px;
+}
+/* 音乐人结束 */
+/* 编辑推荐 */
+#send{
+  width: 600px;
+}
+#send .sen1{
+  font-size: 20px;
+	display: inline-block;
+	color: #555;
+}
+#send .show{
+  display: block;
+}
+#send #but1,#but2{
+  float: right;
+	cursor: pointer;
+	background: #23ab88;
+	width: 20px; height: 20px;
+	border-radius: 20px;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	font-weight: bold;
+  color: #fff;
+  margin-left: 10px;
+}
+#send #but1{
+  background: #80cfbb;
+}
+#sen2,#sen3{
+	width: 600px; height: 390px;
+	background: #f5f7f8;
+	display: none;
+}
+#sen2 li,#sen3 li{
+	width: 180px;
+	padding: 10px 14px;
+	background: #fff;
+	margin-left: 12px;
+	box-sizing: border-box;
+	margin-top: 20px;
+}
+#sen2 p,#sen3 p{
+	font-size: 12px;
+	color: #999;
+}
+/* 编辑推荐结束 */
+/* 右侧部分 */
+.right {
+  float: right;
+  width: 300px;
+}
+.right .rig-top img{ width: 305px; height: 250px; }
+.right .top-lis{ margin-top: 25px; }
+.right .top-lis ul{ width: 310px; }
+.right .top-lis li{
+	float: left;
+	width: 100px; height:60px;
+	background: #f5f7f8;
+	font-size: 16px;
+	line-height: 30px;
+	margin-right: 3px;
+	border-bottom: 5px solid #fff;
+	text-align: center;
+	color: #333;
+}
+.right .top-lis strong{
+	display: block;
+	color: #23ab88;
+}
+.right .top-lis .join{
+	width: 310px; height: 40px;
+	border-radius: 5px;
+	font-size: 16px;
+	text-align: center;
+	background: #23ab88;
+	clear: both;
+	margin-bottom: 30px;
+	color: #fff;
+	line-height: 40px;
+	cursor: pointer;
+}
+/* 单曲榜 */
+#hot strong{
+	font-size: 20px;
+	margin-right: 35%;
+	color: #555;
+}
+#hot .but3{
+	width: 80px; height:25px;
+	background: #388d78;
+	color: #fff;
+	line-height: 25px;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 5px;
+	display: inline-block;
+}
+#hot hr{
+	background: #666;
+}
+#hot li{
+	float: left;
+	color: #666;
+}
+#hot a{
+	color: #666;
+	font-size: 12px;
+	margin-left: 4px;
+}
+#hot li .sec{
+  color: #247258;
+}
+#hot a:hover{
+  text-decoration: underline;
+}
+#hot #hot-lis{ margin-top: 30px; }
+#hot #hot-lis .sec{ display: block; }
+#hot #hot-lis ul{ display: none; }
+#hot #hot-lis li{
+	width: 310px; height: 60px;
+	color: #666;
+	padding: 5px 10px;
+}
+#hot #hot-lis li:hover{
+	background: #f5f7f8;
+	cursor: pointer;
+}
+#hot #hot-lis li em{
+	color: #3f8f74;
+	font-size: 14px;
+	display: block;
+	font-weight: bold;
+}
+#hot #hot-lis li span{
+	font-size: 12px;
+	margin-top: 10px;
+}
+#hot #hot-lis li h1{
+	color: #e6e6e6;
+	font-size: 50px;
+	float: right;
+	margin-top: -20px; margin-right: 15px;
+}
+#hot #hot-lis li img{
+	width: 50px; height: 50px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 5px;
+}
+

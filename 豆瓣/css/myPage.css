@@ -1,0 +1,189 @@
+.myPage{
+  width: 950px;
+  margin: 0 auto;
+}
+.myPage-left{
+  width: 600px;
+  float: left;
+}
+.nine{
+  margin-bottom: 80px;
+}
+.nine .top{
+  height: 50px;
+  margin-bottom: 10px;
+}
+.nine .top img{
+  width: 50px;
+  height: 50px;
+}
+.nine .top span{
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Fixedsys, "微软雅黑";
+  color: #444;
+}
+.nine .top span em{
+  font-size: 12px;
+  color: #666;
+  font-weight: normal;
+}
+.nine li{
+  float: left;
+}
+.nine li a{
+  margin-right: 15px;
+  color: #3276ab
+}
+#lis li{
+  width: 100%;
+  margin-bottom: 50px;
+  padding-right: 10px;
+}
+#lis li em{
+  font-size: 16px;
+  color: #007622
+}
+#lis li a{
+  color: #3276ab;
+}
+#lis li input{
+  float: right;
+  color: #666;
+  padding: 2px 5px;
+  margin-left: 5px;
+}
+#lis li p{
+  margin-top: 10px;
+}
+#lis li:nth-child(2) img{
+  margin-bottom: 5px;
+}
+#lis li:nth-child(3) img{
+  margin-bottom: 5px;
+  padding: 5px;
+}
+#lis .mess{
+  margin-top: 5px;
+}
+#lis .mess input{
+  float: left;
+  width: 50px;
+  height: 25px
+}
+.myPage-right {
+  float: right;
+  width: 300px;
+}
+.myPage-right .photo{
+  height: 200px;
+  background: #fff5ed;
+  padding: 20px;
+}
+.photo img{
+  float: left;
+}
+.photo span{
+  color: #666;
+}
+ .rig-lis li{ margin-top: 30px; }
+ .rig-lis h3{
+	color: green;
+	display: inline-block;
+}
+ .rig-lis p{
+	font-size: 12px;
+	margin-top: 10px;
+}
+.rig-lis a{
+  color: #3276ab
+}
+/* 日记弹框 */
+#mask{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  display: none;
+}
+#diary{
+  width: 500px;
+  height: 742px;
+  padding: 10px 20px;
+  box-shadow: 0 0 15px #ddd;
+  position: absolute;
+  background: #fff;
+  display: none;
+  border-radius: 3px;
+}
+#diary >span{
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+  float: right;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 50%;
+}
+#diary >span:hover{
+  color: #e3393c;
+  cursor: pointer;
+}
+#diary .title,.tag{
+  width: 500px;
+  height: 30px;
+  text-indent: 1em;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+}
+#diary textarea{
+  width: 480px;
+  height: 290px;
+  margin: 10px 0;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #ddd;
+  box-sizing: content-box
+}
+#diary p{
+  font-size: 16px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+#diary p span{
+  float: right;
+}
+#diary p .btn{
+  width: 50px;
+  height: 27px;
+	background: #f2f2f2;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	margin-left: 5px;
+	text-indent: 0;
+	cursor: pointer;
+}
+#diary p.set{
+  font-size: 14px;
+}
+#diary p.set label{
+  font-size: 12px;
+  color: #555;
+}
+#diary p .reset,#diary p .submit{
+  width: 70px;
+  height: 35px;
+  font-size: 16px;
+  color: #333;
+  border-radius: 3px;
+}
+#diary p .submit{
+  background: #3fa156;
+  border: 1px solid #528641;
+  color: #fff;
+  margin-left: 10px;
+}
