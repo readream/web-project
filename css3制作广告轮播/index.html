@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css3制作广告轮播</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #main {
+      width: 948px;
+      height: 260px;
+      position: relative;
+      border: 5px solid #000;
+      margin: 30px auto;
+    }
+
+    #img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    #img img {
+      position: absolute;
+      height: 0;
+      transition: height 0.5s ease
+    }
+
+    #img img.show {
+      height: 260px;
+    }
+
+    #list {
+      width: 261px;
+      height: 260px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    #list li {
+      padding: 13px 15px;
+      background: #414141;
+      opacity: 0.7;
+    }
+
+    #list li img {
+      width: 40px;
+      height: 40px;
+      float: left;
+      margin-right: 15px;
+    }
+
+    #list li p {
+      font-size: 12px;
+      color: #e3e3e3;
+      line-height: 20px;
+    }
+
+    #list li p.title {
+      font-size: 14px;
+      color: #ffffff
+    }
+
+    #list li.current {
+      background: pink
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <!-- 左边图片内容 -->
+    <div id="img">
+      <img src="images/1.png" class="show" id="img1" />
+      <img src="images/2.png" class="tp" id="img2" />
+      <img src="images/3.png" class="tp" id="img3" />
+      <img src="images/4.png" class="tp" id="img4" />
+    </div>
+
+    <ul id="list">
+      <li class="current">
+        <img src="images/but1.png" />
+        <div>
+          <p class="title">精心挑选，倾情推荐</p>
+          <p>推荐精品应用，享受多彩上网</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/but2.png" />
+        <div>
+          <p class="title">精心挑选，倾情推荐</p>
+          <p>推荐精品应用，享受多彩上网</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/but3.png" />
+        <div>
+          <p class="title">精心挑选，倾情推荐</p>
+          <p>推荐精品应用，享受多彩上网</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/but4.png" />
+        <div>
+          <p class="title">精心挑选，倾情推荐</p>
+          <p>推荐精品应用，享受多彩上网</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script>
+    var img = document.getElementById('img')
+    var imgs = img.getElementsByTagName('img')
+    var list = document.getElementById('list')
+    var li = document.getElementsByTagName('li')
+    for (var i = 0; i < li.length; i++) {
+      li[i].index = i
+      li[i].onclick = function () {
+        for (var i = 0; i < li.length; i++) {
+          imgs[i].className = ''
+          li[i].className = ''
+        }
+        imgs[this.index].className = 'show'
+        li[this.index].className = 'current'
+      }
+    }
+  </script>
+</body>
+
+</html>
