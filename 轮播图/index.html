@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>轮播图</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #box {
+      width: 500px;
+      height: 200px;
+      margin: 100px auto;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      position: relative
+    }
+
+    #box .list {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2500px;
+    }
+
+    .list li {
+      width: 500px;
+      height: 200px;
+      float: left;
+    }
+
+    .count {
+      position: absolute;
+      bottom: 10px;
+      text-align: center;
+      left: 50%;
+      margin-left: -50px;
+    }
+
+    .count li {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      margin-left: 10px;
+      float: left;
+      cursor: pointer;
+    }
+
+    .count li.current {
+      background: deepskyblue
+    }
+
+    .arrow span {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 50%;
+      margin-top: -20px;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      line-height: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      opacity: 0.3;
+      border: 1px solid #fff;
+    }
+
+    .arrow {
+      display: none;
+    }
+
+    .arrow .left {
+      left: 0
+    }
+
+    .arrow .right {
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <ul class="list">
+      <li><a href="#"><img src="./images/wf1.jpg" alt=""></a></li>
+      <li><a href="#"><img src="./images/wf2.jpg" alt=""></a></li>
+      <li><a href="#"><img src="./images/wf3.jpg" alt=""></a></li>
+      <li><a href="#"><img src="./images/wf4.jpg" alt=""></a></li>
+      <li><a href="#"><img src="./images/wf5.jpg" alt=""></a></li>
+    </ul>
+    <ul class="count">
+      <li class="current"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <div class="arrow">
+      <span class="left">&lt;</span>
+      <span class="right">&gt;</span>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      var box = document.getElementById('box')
+      var list = box.getElementsByTagName('ul')[0]
+      var count = box.getElementsByTagName('ul')[1]
+      var imgList = list.getElementsByTagName('li')
+      var countList = count.getElementsByTagName('li')
+      var arrow = box.getElementsByTagName('div')[0]
+      var arrLeft = arrow.getElementsByTagName('span')[0]
+      var arrRight = arrow.getElementsByTagName('span')[1]
+      var num = 0
+      var timer = null
+      timer = setInterval(autoPlay, 2000)
+      box.onmouseenter = function () {
+        arrow.style.display = 'block'
+        clearInterval(timer)
+      }
+      box.onmouseleave = function () {
+        arrow.style.display = 'none'
+        timer = setInterval(autoPlay, 1000)
+      }
+      arrLeft.onclick = function () {
+        num--
+        if (num < 0) {
+          num = 4
+        }
+        changePic(num)
+      }
+      arrRight.onclick = function () {
+        autoPlay()
+      }
+      for (var i = 0; i < countList.length; i++) {
+        (function (i) {
+          countList[i].onclick = function () {
+            changePic(i)
+          }
+        })(i)
+      }
+      function autoPlay() {
+        num++
+        if (num >= 5) {
+          num = 0
+        }
+        changePic(num)
+      }
+      function changePic(index) {
+        for (var i = 0; i < imgList.length; i++) {
+          countList[i].className = ''
+        }
+        countList[index].className = 'current'
+        list.style.left = -index * 500 + 'px'
+        console.log()
+      }
+    }
+  </script>
+</body>
+
+</html>
