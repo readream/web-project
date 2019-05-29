@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>打乱图片</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      font-size: 16px;
+      text-align: center;
+      margin: 50px auto;
+    }
+
+    input {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      background: #396;
+      color: #fff;
+    }
+
+    #tab {
+      margin: 30px auto;
+    }
+
+    #tab ul {
+      list-style: none;
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    #tab li img {
+      width: 300px;
+      height: 200px;
+      margin: 20px 10px;
+    }
+
+    #tab li {
+      float: left;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <input type="button" value="顺序排列" />
+    <input type="button" value="随机" />
+    <div id="tab">
+      <ul>
+        <li>
+          <img src="ads/1.jpg" /><br />
+          <span>1.图片一</span>
+        </li>
+        <li>
+          <img src="ads/2.jpg" /><br />
+          <span>2.图片二</span>
+        </li>
+        <li>
+          <img src="ads/3.jpg" /><br />
+          <span>3.图片三</span>
+        </li>
+        <li>
+          <img src="ads/4.jpg" /><br />
+          <span>4.图片四</span>
+        </li>
+        <li>
+          <img src="ads/5.jpg" /><br />
+          <span>5.图片五</span>
+        </li>
+        <li>
+          <img src="ads/1.jpg" /><br />
+          <span>6.图片六</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      var box = document.getElementById('box')
+      btn1 = box.getElementsByTagName('input')[0]
+      btn2 = box.getElementsByTagName('input')[1]
+      var tab = document.getElementById('tab')
+      var li = tab.getElementsByTagName('li')
+      var arr1 = []
+      var arr2 = []
+      var arr3 = []
+      for (var i = 0; i < li.length; i++) {
+        arr1.push(li[i].getElementsByTagName('img')[0].src)
+        arr2.push(li[i].getElementsByTagName('span')[0].innerHTML)
+        arr3.push(i)
+      }
+      var flag = true
+      //顺序排列
+      btn1.onclick = function () {
+        if (flag) {
+          arr3.sort(function (a, b) {
+            return b - a
+          })
+        } else {
+          arr3.sort(function (a, b) {
+            return a - b
+          })
+        }
+        change()
+        flag = !flag
+      }
+      //随机排列
+      btn2.onclick = function () {
+        arr3.sort(function (a, b) {
+          return Math.random() - 0.5;
+        })
+        change()
+      }
+      function change() {
+        for (var i = 0; i < arr3.length; i++) {
+          console.log(arr3[i])
+          li[i].getElementsByTagName('img')[0].src = arr1[arr3[i]]
+          li[i].getElementsByTagName("span")[0].innerHTML = arr2[arr3[i]];
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
