@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>滚动页面显示悬浮导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      height: 200px;
+      background: #f2f2f2;
+      font-weight: bold;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    nav {
+      width: 100%;
+      height: 50px;
+      background: #333;
+    }
+
+    nav ul {
+      width: 900px;
+      margin: 0 auto;
+      list-style: none;
+    }
+
+    nav li {
+      float: left;
+    }
+
+    nav li a {
+      font-size: 16px;
+      height: 50px;
+      color: #fff;
+      padding: 0 30px;
+      line-height: 50px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    nav li a:hover {
+      background: #666;
+    }
+
+    #cloths {
+      height: 600px;
+      background: #bbb;
+      font-weight: bold;
+      text-align: center;
+      line-height: 400px;
+    }
+
+    #shoes {
+      height: 600px;
+      background: #aaa;
+      font-weight: bold;
+      text-align: center;
+      line-height: 400px;
+    }
+
+    #toys {
+      height: 600px;
+      background: #999;
+      font-weight: bold;
+      text-align: center;
+      line-height: 400px;
+    }
+
+    .fixed {
+      position: fixed;
+      left: 0;
+      top: 0;
+      animation: show 0.5s;
+    }
+
+    @keyframes show {
+      from {
+        top: -50px;
+      }
+
+      to {
+        top: 0
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>header</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">秒杀</a></li>
+      <li><a href="#">女装馆</a></li>
+      <li><a href="#">内衣馆</a></li>
+      <li><a href="#">美妆馆</a></li>
+      <li><a href="#">品牌特卖</a></li>
+      <li><a href="#">团购频道</a></li>
+      <li><a href="#">每周上新</a></li>
+    </ul>
+  </nav>
+  <section id="cloths">cloths</section>
+  <section id="shoes">shoes</section>
+  <section id="toys">toys</section>
+  <script>
+    var shoes = document.getElementById('shoes')
+    var nav = document.getElementsByTagName('nav')[0]
+    window.onscroll = function () {
+      var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+      if (scrollTop > shoes.offsetTop) {
+        nav.className = 'fixed'
+      } else {
+        nav.className = ''
+      }
+    }
+  </script>
+</body>
+
+</html>
