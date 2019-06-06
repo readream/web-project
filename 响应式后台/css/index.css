@@ -1,0 +1,10 @@
+/* 修改表格样式 */
+.table{
+  margin-bottom: 0
+}
+/*footer*/
+footer{
+    font-weight: 400;
+    text-align: center;
+    padding:20px ;
+}

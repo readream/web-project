@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>滚动菜单</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      background: #666
+    }
+
+    nav {
+      width: 1057px;
+      margin: 50px auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #aaa;
+    }
+
+    nav ul>li {
+      list-style: none;
+      width: 150px;
+      background: -webkit-linear-gradient(rgba(41, 41, 41, 0.75) 0%, rgba(54, 54, 54, 0.72) 50%, rgba(24, 23, 23, 0.94) 51%);
+      float: left;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      border-right: 1px solid #000;
+      position: relative;
+    }
+
+    nav li ul {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 40px;
+    }
+
+    nav li ul li {
+      background: rgba(22, 22, 22, 0.5);
+      border: none;
+      border-top: 1px solid #aaa;
+    }
+
+    nav li:last-child {
+      border-right: none;
+    }
+
+    nav li:hover {
+      background: #222;
+    }
+
+    nav li:hover ul {
+      display: block;
+      animation: animate 0.5s ease;
+    }
+
+    nav li a {
+      text-decoration: none;
+      color: #f2f2f2;
+    }
+
+    @keyframes animate {
+      from {
+        opacity: 0;
+        transform: rotate(0deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: rotate(-360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">前端设计</a>
+        <ul>
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">javascript</a></li>
+        </ul>
+      </li>
+      <li><a href="#">网页设计</a></li>
+      <li><a href="#">动画设计</a></li>
+      <li>
+        <a href="#">编程语言</a>
+        <ul>
+          <li><a href="#">PHP</a></li>
+          <li><a href="#">JAVA</a></li>
+          <li><a href="#">wordpress</a></li>
+          <li><a href="#">CodeIgnite</a></li>
+        </ul>
+      </li>
+      <li><a href="#">手机开发</a></li>
+      <li><a href="#">开源程序</a></li>
+      <li><a href="#">我的博客</a></li>
+    </ul>
+  </nav>
+</body>
+
+</html>
