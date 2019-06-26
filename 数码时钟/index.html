@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数码时钟</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #666
+    }
+
+    #clock {
+      width: 250px;
+      height: 38px;
+      margin: 50px auto
+    }
+
+    #clock img {
+      width: 25px;
+      height: 36px;
+      margin: 0 2px;
+      position: relative;
+    }
+
+    #clock span {
+      font-size: 50px;
+      color: #aaa
+    }
+  </style>
+</head>
+
+<body>
+  <div id="clock">
+    <img src="./images/0.png" alt="">
+    <img src="./images/0.png" alt="">
+    <span>:</span>
+    <img src="./images/0.png" alt="">
+    <img src="./images/0.png" alt="">
+    <span>:</span>
+    <img src="./images/0.png" alt="">
+    <img src="./images/0.png" alt="">
+  </div>
+
+  <script>
+    window.onload = function () {
+      var clock = document.getElementById('clock')
+      var img = clock.getElementsByTagName('img')
+
+      timer = setInterval(function () {
+        //获取当前日期的时分秒
+        var date = new Date()
+        var h = date.getHours()
+        var m = date.getMinutes()
+        var s = date.getSeconds()
+        var timer = null
+        //将时分秒拼接为字符串
+        var time = format(h) + format(m) + format(s)
+        //改变字符串的src
+        for (var i = 0; i < img.length; i++) {
+          img[i].src = './images/' + time.charAt(i) + '.png'
+        }
+      }, 1000)
+      console.log(typeof time)
+      //格式化时间
+      function format(num) {
+        if (num < 10) {
+          return num = '0' + num
+        } else {
+          return num = num + ''
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

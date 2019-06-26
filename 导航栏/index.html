@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>导航栏效果</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    a {
+      text-decoration: none;
+
+    }
+
+    .menu {
+      white-space: nowrap;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      /* overflow: hidden; */
+      background: #666
+    }
+
+    .menu ul {
+      width: 1380px;
+    }
+
+    .menu li {
+      float: left;
+      position: relative;
+      margin-left: -1px;
+      z-index: 2;
+      background: url(./images/menu-fgx.gif) no-repeat 0 0;
+      list-style: none
+    }
+
+    .menu li a:before {
+      width: 0;
+      height: 0;
+      background: #c7281c;
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      -webkit-transition: width .5s cubic-bezier(0.52, 1.64, 0.37, 0.66);
+      -webkit-transition: width .5s cubic-bezier(0.52, 1.64, 0.37, 0.66);
+      z-index: -1;
+    }
+
+    .menu li.born {
+      background: none;
+    }
+
+    .menu li a {
+      color: #fff;
+      display: inline-block;
+      padding: 0 37px 0;
+    }
+
+    .menu li.cur a,
+    .menu li a:hover {
+      text-decoration: none;
+      z-index: 3;
+      position: relative;
+    }
+
+    .menu li.cur a:before,
+    .menu li a:hover:before {
+      width: 100%;
+      height: 60px;
+    }
+
+    .menu li a:-webkit-any-link {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <ul>
+      <li class="born cur"> <a href="#" title="宝威起重首页"> 宝威起重首页 </a> </li>
+      <li> <a href="#" title="智能起重机"> 智能起重机 </a> </li>
+      <li> <a href="#" title="液压起重机"> 液压起重机 </a> </li>
+      <li> <a href="#" title="轮胎式门式起重机"> 轮胎式门式起重机 </a> </li>
+      <li> <a href="#" title="产品中心"> 产品中心 </a> </li>
+      <li> <a href="#" title="新闻案例"> 新闻案例 </a> </li>
+      <li> <a href="#" title="关于宝威起重"> 关于宝威起重 </a> </li>
+      <li> <a href="#" title="联系宝威起重"> 联系宝威起重 </a> </li>
+    </ul>
+  </div>
+</body>
+
+</html>

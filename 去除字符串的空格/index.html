@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>去除字符串的空格</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 0;
+      height: 0;
+      margin: 100px auto;
+      border-top: 50px solid transparent;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 50px solid red;
+    }
+  </style>
+</head>
+<div></div>
+
+<body>
+  <script>
+    var str = '  hello  world  '
+    //str = str.split(' ').join('')
+
+    str = str.replace(/^\s*|\s*$/g, "");
+    console.log(str)
+    var str1 = '  hello  world  '
+    function trim(str) {
+      var reg = /\s+/g
+      if (typeof str1 === 'string') {
+        var trimStr = str.replace(reg, '')
+      }
+      console.log(trimStr)
+    }
+    trim(str1)
+
+    //获取当前url参数的方法
+    var url = "https://github.com/kk?tab=stars&assetId=311&page=DETAIL&projectPhase=2";
+    function splitUrl(url) {
+      if (typeof url !== 'string') {
+        return
+      }
+      var obj = {}
+      var params = url.split('?')[1]
+      var param = params.split('&')
+      for (var i = 0; i < param.length; i++) {
+        var temp = param[i].split('=');
+        obj[temp[0]] = temp[1]
+      }
+      console.log(obj)
+    }
+    splitUrl(url)
+  </script>
+</body>
+
+</html>
